@@ -1,0 +1,25 @@
+{
+  "name": "avengers-academy-api-backend",
+  "version": "1.0.0",
+  "description": "Api builded with NodeJs, express,consign and PostgresSql",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mspaulo/avengers-academy-challenge.git"
+  },
+  "author": "Paulo Meira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mspaulo/avengers-academy-challenge/issues"
+  },
+  "homepage": "https://github.com/mspaulo/avengers-academy-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "pg": "^8.3.3"
+  }
+}

@@ -38,8 +38,8 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
-jspm_packages/
+aac-backend/node_modules/
+aac-backend/jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
