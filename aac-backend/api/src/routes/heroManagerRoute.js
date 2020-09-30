@@ -3,4 +3,7 @@ module.exports = function(application){
         application.api.src.controllers.heroManagerController.getall(application,request,response);
     });
 
+    application.post('/hero/save', function(request, response){
+        application.api.src.controllers.heroManagerController.saveHero(application, request, response);
+    });
 }

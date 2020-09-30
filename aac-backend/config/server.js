@@ -1,10 +1,10 @@
 const express = require('express');
 const consign = require('consign');
-const bodyParser = require('body-parser');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.urlencoded( {extended: true} ));
+app.use(express.json());
 
 consign()
 .include('./api/src/routes')
