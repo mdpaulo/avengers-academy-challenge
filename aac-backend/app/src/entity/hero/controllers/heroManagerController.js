@@ -25,8 +25,7 @@ module.exports.getHeroById = function(application,request,response){
 module.exports.saveHero = function(application,request,response){
     var connection = application.config.database();
     var heroModel = new application.app.src.entity.hero.models.HeroDAO(connection);
-
-    //console.log(request.body);
+    
     heroModel.saveHeroInfo(request.body,function(error, result){
         if(error){
             response.status(500).send(error);
