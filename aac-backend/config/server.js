@@ -7,10 +7,13 @@ app.use(express.urlencoded( {extended: true} ));
 app.use(express.json());
 
 consign()
-.include('./api/src/routes')
+.include('./app/src/routes')
 .then('./config/database.js')
-.then('./api/src/models')
-.then('./api/src/controllers')
+.then('./app/src/entity/hero/models')
+.then('./app/src/entity/hero/controllers')
+.then('./app/src/entity/ocurrence/models')
+.then('./app/src/entity/ocurrence/controllers')
+.then('./app/src/entity/ocurrence/client')
 .into(app);
 
 module.exports = app;
