@@ -1,5 +1,6 @@
 const app = require('./config/server');
+var server = require('./config/default');
 
-app.listen(9000,function(){
-    console.log('Server Started');
+app.listen(server.port,function(){
+    console.info("Server Started on port: " + server.port);
 });
