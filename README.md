@@ -17,13 +17,13 @@ Como a aplicação utiliza MYSQL como SGBD, é necessário que tenha uma instala
 
 Caso esteja utilizando sistema operacional Linux com distro Ubuntu 20.04, basta utilizar os comandos no terminal: 
 
-sudo apt update && sudo apt install mysql-server -y 
+- sudo apt update && sudo apt install mysql-server -y 
 
  
 
 Após concluir a instalação, para acessar o MySql basta utilizar o comando abaixo  
 
-sudo mysql 
+- sudo mysql 
 
  
 
@@ -39,7 +39,7 @@ OPCIONAL: Para testar os endpoints do backend, é aconselhável utilizar a ferra
 
 Você pode utilizar a versão web da ferramenta ou instala-la em seu sistema operacional. Caso esteja utilizando Ubuntu basta utilizar a gerenciador de pacotes snap digitando o comando abaixo em seu terminal: 
 
-snap install postman 
+- snap install postman 
 
 Se estiver utilizando windows basta baixar o instalador em https://www.postman.com/downloads/ 
 
@@ -49,8 +49,8 @@ Para Iniciar a aplicação basta executar os comandos abaixo, pelo terminal, na 
 
 Para instalar: 
 
-npm install 
+- npm install 
 
 Para Iniciar: 
 
-npm start 
+- npm start 
