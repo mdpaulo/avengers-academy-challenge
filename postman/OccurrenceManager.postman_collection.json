@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "caaa5d08-3dd6-4295-b01c-309c055afe25",
+		"name": "OccurrenceManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List By Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\":\"ASSAULT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/occurrence/listbystatus",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"occurrence",
+						"listbystatus"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
