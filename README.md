@@ -1,15 +1,15 @@
 # avengers-academy-challenge
 
-## Tecnologias utilizadas na construção do Backend
-*[Node.JS]
-*[Express]
-*[Consign]
-*[Socket.IO]
-*[Body-Parser]
-*[MySQL]
+### Tecnologias utilizadas na construção do Backend
+- Node.JS
+- Express
+- Consign
+- Socket.IO
+- Body-Parser
+- MySQL
 
 
-## Instruções para iniciar o backend 
+### Instruções para iniciar o backend 
 
 Como a aplicação utiliza MYSQL como SGBD, é necessário que tenha uma instalação previa em sua máquina ou servidor.  
 
