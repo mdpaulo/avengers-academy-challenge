@@ -1,11 +1,12 @@
 {
-  "name": "avengers-academy-api-backend",
+  "name": "avengers-academy",
   "version": "1.0.0",
   "description": "Api builded with NodeJs, express,consign and PostgresSql",
-  "main": "api.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"No test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,11 @@
   },
   "homepage": "https://github.com/mspaulo/avengers-academy-challenge#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "consign": "^0.1.6",
-    "express": "^4.17.1",
-    "http": "0.0.1-security",
-    "mysql": "^2.18.1",
-    "pg": "^8.3.3",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.1"
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

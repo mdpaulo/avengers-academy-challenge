@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "79384389-2316-422b-a40f-137dc4d55896",
 		"name": "HeroManager",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12541540"
 	},
 	"item": [
 		{
@@ -17,21 +18,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/hero/findall",
+					"raw": "http://localhost:9000/hero",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
-						"hero",
-						"findall"
+						"hero"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Save",
+			"name": "Create",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -43,7 +44,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"codename\":\"asdf\",\n    \"arank\":\"C\",\n    \"latitude\":\"-012\",\n    \"longitude\":\"-34\",\n    \"status\":\"AVAILABLE\"\n}",
+					"raw": "{\n    \"codeName\": \"Pantera negra\",\n    \"rank\": \"A\",\n    \"acceptSokoviaAccords\": true,\n    \"active\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -51,14 +52,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/hero/save",
+					"raw": "http://localhost:9000/hero",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
-						"hero",
-						"save"
+						"hero"
 					],
 					"query": [
 						{
@@ -74,7 +75,7 @@
 		{
 			"name": "Update",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -84,7 +85,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 99,\n    \"codename\":\"Homem aranha\",\n    \"arank\":\"A\",\n    \"latitude\":\"-965441\",\n    \"longitude\":\"-100001\",\n    \"status\":\"ON MISSON\"\n}",
+					"raw": "{\n    \"active\": true,\n    \"codeName\": \"Capitao America\",\n    \"rank\": \"A\",\n    \"acceptSokoviaAccords\": false\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,20 +93,19 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/hero/update",
+					"raw": "localhost:9000/hero/:id",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
 						"hero",
-						"update"
+						":id"
 					],
-					"query": [
+					"variable": [
 						{
-							"key": "",
-							"value": null,
-							"disabled": true
+							"key": "id",
+							"value": "64a4b4754e688f0d629a6e17"
 						}
 					]
 				}
@@ -115,7 +115,7 @@
 		{
 			"name": "Delete",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -133,20 +133,26 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/hero/delete",
+					"raw": "localhost:9000/hero/:id",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
 						"hero",
-						"delete"
+						":id"
 					],
 					"query": [
 						{
 							"key": "",
 							"value": null,
 							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64af5d7494075718850a2bbb"
 						}
 					]
 				}
@@ -155,8 +161,11 @@
 		},
 		{
 			"name": "FindById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -168,19 +177,31 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/hero/findbyid",
+					"raw": "localhost:9000/hero/:id",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
 						"hero",
-						"findbyid"
+						":id"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64a4b240a4e7b657f2b9e89b"
+						}
 					]
 				}
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
