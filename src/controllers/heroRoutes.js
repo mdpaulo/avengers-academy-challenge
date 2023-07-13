@@ -1,9 +1,10 @@
 const heroController = require('./heroController');
 
-module.exports = (app) => {    
-    app.post('/heros', heroController.create);    
-    app.get('/heros', heroController.findAll);    
-    app.get('/heros/:heroId', heroController.findOne);    
-    app.put('/heros/:heroId', heroController.update);    
-    app.delete('/heros/:heroId', heroController.delete);
+module.exports = (app) => {
+    app.get('/alive', (req, res) => { res.status(200).send(true)});
+    app.post('/hero', heroController.create);    
+    app.get('/hero', heroController.findAll);    
+    app.get('/hero/:id', heroController.findById);    
+    app.put('/hero/:id', heroController.update);    
+    app.delete('/hero/:id', heroController.delete);
 }

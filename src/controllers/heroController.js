@@ -1,66 +1,80 @@
 
-const { createHero, findAllHeros, findHeroById, updateHero, deleteHero } = require('../service/heroService');
+const Hero = require('../entities/hero/heroSchema');
 
-exports.create = async (request, response) => {
-    validatePayload(request, response);
-    try {
-        const result = await createHero(request.body)
-        response.status(200).send(result);
-    } catch (error) {
+exports.create = (request, response) => {
+    const newData = validatePayload(request.body);
+    const hero = new Hero(newData);
+    hero.save(newData)
+    .then(data => {
+        response.status(200).send(data);
+        return ;
+    }).catch(error => {
         response.status(500).send({
             message: error.message || "Unknow error occurred while creating the hero registry."
         });
-    }
-    
+    });
 };
 
 exports.findAll = (request, response) => {
-    try {
-        response.status(200).send(findAllHeros());
-    } catch (error) {
+    Hero.find()
+    .then(data => {
+        response.status(200).send(data);
+    }).catch(error => {
         response.status(500).send({
             message: error.message || "Unknow error occurred while fetching hero data."
         });
-    }
+    });
 };
 
-exports.findOne = (request, response) => {
-    try {
-        response.status(200).send(findHeroById(request.params.id));
-    } catch (error) {
+exports.findById = (request, response) => {
+    Hero.findById(request.params.id)
+    .then(data =>{         
+        if(data){
+            response.status(200).send(data);
+        } else {
+            response.status(404).send({message: `hero with id ${request.params.id} not found!`});
+        }
+    }).catch(error => {
         response.status(500).send({
             message: error.message || "Unknow error occurred while fetching hero data."
         });
-    }
+    });
 };
 
-exports.update = async (request, response) => {
-    try {
-        validatePayload(request, response)
-        const result = await updateHero(request.body)
-        response.status(201).send(result);
-    } catch (error) {
+exports.update = (request, response) => {
+    const newData = validatePayload(request.body);
+    Hero.findByIdAndUpdate(request.params.id, newData, {new: true})
+    .then(data => {
+        if(data){
+            response.status(201).send(data);
+        } else {
+            response.status(404).send({message: `hero with id ${request.params.id} not found!`});
+        }
+    })
+    .catch(error => { 
         response.status(500).send({
             message: error.message || "Unknow error occurred while updating hero data."
         });
-    }
+    });
 };
 
 exports.delete = (request, response) => {
-    try {
-        deleteHero(request.params.id);
+    Hero.findByIdAndRemove(request.params.id)
+    .then(data => {
         response.status(204).send();
-    } catch (error) {
+    }).catch(error => { 
         response.status(500).send({
             message: error.message || "Unknow error occurred while deleting hero data."
         });
-    }
+    });
 };
 
-function validatePayload(request, response){
-    if(!request.body) {
-        return response.status(400).send({
-            message: "Hero data can not be empty"
-        });
+function validatePayload(data){
+    const newData = {
+        codeName: data.codeName ? data.codeName : undefined,
+        rank: data.rank ? data.rank : undefined, 
+        acceptSokoviaAccords: data.acceptSokoviaAccords ? data.acceptSokoviaAccords : undefined,
+        active: data.active ? data.active : undefined
     }
+    return newData;
 }
