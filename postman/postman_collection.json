@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "79384389-2316-422b-a40f-137dc4d55896",
+		"name": "HeroManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12541540"
+	},
+	"item": [
+		{
+			"name": "FindAll",
+			"protocolProfileBehavior": {
+				"disableUrlEncoding": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/hero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"hero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codeName\": \"Pantera negra\",\n    \"rank\": \"A\",\n    \"acceptSokoviaAccords\": true,\n    \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/hero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"hero"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": true,\n    \"codeName\": \"Capitao America\",\n    \"rank\": \"A\",\n    \"acceptSokoviaAccords\": false\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/hero/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"hero",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64a4b4754e688f0d629a6e17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 99    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/hero/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"hero",
+						":id"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64af5d7494075718850a2bbb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/hero/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"hero",
+						":id"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64a4b240a4e7b657f2b9e89b"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
